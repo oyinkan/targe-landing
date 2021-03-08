@@ -74,6 +74,9 @@ body {
 .talent-waitlist {
     padding: 7rem 0;
 }
+.space {
+    margin-left: 6rem;
+}
 .main h3 {
     font-size: 50px;
     letter-spacing: -0.014em;
@@ -237,6 +240,7 @@ footer .social-icons {
     .talent-waitlist img {
         margin-bottom: 4rem;
     }
+
     .btn.btn-join img {
         margin-bottom: 0;
     }
@@ -258,6 +262,15 @@ footer .social-icons {
     }
     .hidden-sm {
         display: none;
+    }
+    .create-wrapper {
+        padding: 4rem;
+    }
+    .w-85 {
+        width: 100%;
+    }
+    .space {
+        margin-left: 1rem;
     }
 }
 
