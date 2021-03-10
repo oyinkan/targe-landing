@@ -33,10 +33,10 @@ body {
 }
 .navbar {
     border-bottom: 1px solid rgba(182, 191, 206, 0.8);
-    padding: 15px 0;
+    padding: 1.5rem 0;
 }
 .navbar-brand img {
-    height: 22px;
+    height: 2.2rem;
 }
 .navbar-light .navbar-toggler {
     border: 0;
@@ -49,7 +49,7 @@ body {
 .modal p,
 .modal .form-control {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.4rem;
     /* line-height: 37px; */
     letter-spacing: -0.01em;
     color: #171248;
@@ -63,7 +63,7 @@ body {
     border: 1px solid #171248;
     border-radius: 10px;
     color: #fff;
-    padding: 10px 30px;
+    padding: 1rem 3rem;
 }
 .talent-wrapper h1,
 .main h3 {
@@ -73,7 +73,7 @@ body {
 }
 .talent-wrapper h1 {
     width: 90%;
-    font-size: 50px;
+    font-size: 5rem;
     /* line-height: 90px; */
     letter-spacing: -0.03em; 
 }
@@ -94,19 +94,19 @@ body {
 }
 .main h3 {
     width: 60%;
-    font-size: 35px;
+    font-size: 3.5rem;
     letter-spacing: -0.014em;
 }
 .talent-waitlist p,
 .employers-waitlist p {
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #171248;
     opacity: 0.7;
     width: 80%;
     letter-spacing: -0.006em;
 }
 .talent-waitlist .steps {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #1A73E8;
     opacity: 1;
@@ -114,7 +114,7 @@ body {
 }
 .talent-waitlist .line {
     border-left: 1px solid #1A73E8;
-    height: 65px;
+    height: 6.5rem;
     opacity: 0.5;
 }
 .talent-waitlist .second-line {
@@ -123,7 +123,7 @@ body {
 .btn.btn-join {
     font-family: "BR Firma Medium";
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.6rem;
     letter-spacing: -0.006em;
     color: #1A73E8;
     padding-left: 0;
@@ -140,7 +140,7 @@ body {
 .targe-loop p,
 .qualified-wrapper p,
 .create-wrapper p {
-    font-size: 16px;
+    font-size: 1.6rem;
     letter-spacing: -0.006em;
 }
 .targe-loop p {
@@ -207,7 +207,7 @@ body {
     background: #372D96;
     border-radius: 10px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.4rem;
     letter-spacing: -0.01em;
     padding: 10px 30px;
 }
@@ -416,5 +416,11 @@ footer .social-icons {
 @media screen and (min-width: 768px) {
     .hidden-md {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1450px) {
+    html {
+        font-size: 80%;
     }
 }
