@@ -8,21 +8,38 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm align-items-center navbar-light">
+    <nav class="navbar navbar-expand-lg align-items-center navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="images/logo.svg" class="img-fluid" alt="Comapny's logo">
             </a>
-            <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#employerModal">Join employer waitlist</a>
-                </li>
-                <li class="nav-item ml-5">
-                    <a href="mailto:" class="btn btn-primary btn-send">
-                        Send us a message
-                    </a>
-                </li>
-            </ul>
+            <button class="navbar-toggler" type="button" onclick="openNav()">
+                <img src="images/toggler.svg" alt="toggler icon">
+            </button>
+            <div class="hidden-sm">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#employerModal">Join employer waitlist</a>
+                    </li>
+                    <li class="nav-item ml-5">
+                        <a href="mailto:joyce@targe.io" class="btn btn-primary btn-send">
+                            Send us a message
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="myNav" class="overlay hidden-md"> 
+                <div class="text-right">
+                    <a href="javascript:void(0)" class="closebtn mb-5" onclick="closeNav()">
+                        <img src="images/close.svg" alt="close icon">
+                    </a> 
+                </div>
+                <div class="overlay-content"> 
+                    <a href="#" data-toggle="modal" data-target="#talentModal">Join talent waitlist</a> 
+                    <a href="#" data-toggle="modal" data-target="#employerModal">Join employer waitlist</a> 
+                    <a href="mailto:joyce@targe.io">Send us a message</a> 
+                </div> 
+            </div> 
         </div>
     </nav>
     <main class="main">
@@ -96,7 +113,7 @@
         <section class="targe-loop text-center">
             <div>
                 <h3>Targe loop</h3>
-                <p>We build for talents, we serve employers. <br>We serve employers, we help talents.</p>
+                <p>We build for talents, we serve employers. We serve employers, we help talents.</p>
                 <img src="images/targe-loop.svg" class="img-fluid" alt="">
             </div>
         </section>
@@ -106,7 +123,8 @@
                     <div class="col-lg-9 col-md-10">
                         <div class="py-5 my-4">
                             <h3 class="mb-4">Find qualified candidates on Targe and get a head start in your recruitment process</h3>
-                            <p>Marketers    •    Product Managers    •    Designers    •    Customer Success</p>
+                            <p class="hidden-sm">Marketers    •    Product Managers    •    Designers    •    Customer Success</p>
+                            <p class="hidden-md">Marketers    •    Product Managers<br>Designers    •    Customer Success</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-2">
@@ -177,49 +195,24 @@
         </section>
     </main>
 
-    <footer class="web-footer hidden-sm">
+    <footer>
         <div class="container-fluid">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center justify-content-between">
                 <div class="footer-logo">
                     <img src="images/logo.svg" class="img-fluid" alt="Targe logo">
                 </div>
                 <div>
-                    <p class="copyright">© 2021 Targe Technologies Ltd</p>
+                    <p class="copyright mb-0">© 2021 Targe Technologies Ltd</p>
                 </div>
                 <div class="social-icons align-items-center">
                     <div class="ml-3">
-                        <a href=""><img src="images/twitter.svg" class="img-fluid" alt="twitter icon"></a>
+                        <a href="https://twitter.com/trytarge" target="_blank"><img src="images/twitter.svg" class="img-fluid" alt="twitter icon"></a>
                     </div>
                     <div class="ml-3">
-                        <a href=""><img src="images/linkedin.svg" class="img-fluid" alt="linkedin icon"></a>
+                        <a href="https://linkedin.com/company/trytarge" target="_blank"><img src="images/linkedin.svg" class="img-fluid" alt="linkedin icon"></a>
                     </div>
                     <div class="ml-3">
-                        <a href=""><img src="images/message.svg" class="img-fluid" alt="message icon"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <footer class="mobile-footer hidden-md">
-        <div class="container-fluid">
-            <div class="d-flex justify-content-between">
-                <div class="footer-logo">
-                    <img src="images/logo.svg" class="img-fluid" alt="Targe logo">
-                </div>
-                <div class="copyright-wrapper justify-content-between">
-                    <div>
-                        <p class="copyright">© 2021 Targe Technologies Ltd</p>
-                    </div>
-                    <div class="social-icons align-items-center">
-                        <div class="ml-3">
-                            <a href=""><img src="images/twitter.svg" class="img-fluid" alt="twitter icon"></a>
-                        </div>
-                        <div class="ml-3">
-                            <a href=""><img src="images/linkedin.svg" class="img-fluid" alt="linkedin icon"></a>
-                        </div>
-                        <div class="ml-3">
-                            <a href=""><img src="images/message.svg" class="img-fluid" alt="message icon"></a>
-                        </div>
+                        <a href="mailto:joyce@targe.io"><img src="images/message.svg" class="img-fluid" alt="message icon"></a>
                     </div>
                 </div>
             </div>
@@ -351,5 +344,16 @@
             $('#talentModal').modal('hide');
         });
     </script>
+    <script> 
+        function openNav() { 
+            document.getElementById("myNav").style.display = "block"; 
+            document.getElementById("myNav").style.width = "100%"; 
+        } 
+  
+        function closeNav() { 
+            document.getElementById("myNav").style.width = "0%"; 
+            document.getElementById("myNav").style.display = "none"; 
+        } 
+    </script> 
 </body>
 </html>

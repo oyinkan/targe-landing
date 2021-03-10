@@ -35,6 +35,9 @@ body {
     border-bottom: 1px solid rgba(182, 191, 206, 0.8);
     padding: 15px 0;
 }
+.navbar-light .navbar-toggler {
+    border: 0;
+}
 .navbar .navbar-nav .nav-link,
 .btn.btn-primary.btn-send,
 .talent-wrapper p,
@@ -118,8 +121,11 @@ body {
     color: rgba(23, 18, 72, 0.8);
 }
 .targe-loop img {
-    height: 40rem;
     margin-top: 7rem;
+}
+.targe-loop p {
+    width: 32%;
+    margin: auto;
 }
 .qualified-wrapper {
     background-color: #171248;
@@ -236,6 +242,50 @@ footer .social-icons {
     }
 }
 @media screen and (max-width: 768px) {
+    .talent-wrapper,
+    .create-wrapper,
+    footer .d-flex {
+        text-align: center;
+    }
+    .talent-wrapper h1 {
+        font-size: 36px;
+    }
+    .talent-wrapper p {
+        margin: auto;
+    }
+    .talent-wrapper img {
+        margin-top: 3rem;
+    }
+    .main h3 {
+        font-size: 30px;
+    }
+    .talent-waitlist p, 
+    .btn.btn-join,
+    .targe-loop p, 
+    .employers-waitlist p,
+    .qualified-wrapper p {
+        font-size: 16px;
+    }
+    .targe-loop p {
+        width: 75%;
+    }
+    .create-wrapper p {
+        font-size: 25px;
+    }
+    .qualified-wrapper {
+        background-size: cover;
+        background-position: inherit;
+    }
+    .employers-waitlist {
+        padding: 4rem 0;
+    }
+    .social-icons {
+        display: inline-block!important;
+        margin-top: 1.5rem;
+    }
+    .social-icons div {
+        display: inline;
+    }
     .employers-waitlist img,
     .talent-waitlist img {
         margin-bottom: 4rem;
@@ -272,6 +322,38 @@ footer .social-icons {
     .space {
         margin-left: 1rem;
     }
+
+
+    .overlay {
+        height: 100%; 
+        width: 0; 
+        position: fixed; 
+        background: #171248;
+        transition: 0.5s;
+        top: 0;
+        left: 0;
+        z-index: 1; 
+        padding: 15px;
+        display: none;
+    }
+    .overlay-content { 
+        width: 100%; 
+        margin-top: 35px; 
+    } 
+    .overlay a { 
+        padding: 8px; 
+        text-decoration: none; 
+        display: block; 
+        transition: 0.3s; 
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: -0.003em;
+        color: #CEDBE9;
+    } 
+    .overlay a:hover, 
+    .overlay a:focus { 
+        color: #fff; 
+    }  
 }
 
 @media screen and (max-width: 576px) {
