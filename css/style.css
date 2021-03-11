@@ -47,7 +47,8 @@ body {
 .talent-wrapper p,
 .copyright,
 .modal p,
-.modal .form-control {
+.modal .form-control,
+.talent-wrapper .join-employer {
     font-weight: 600;
     font-size: 1.4rem;
     /* line-height: 37px; */
@@ -82,6 +83,9 @@ body {
 }
 .talent-wrapper p {
     width: 80%;
+}
+.talent-wrapper .join-employer {
+    padding-left: 20px;
 }
 .talent-waitlist {
     padding: 7rem 0;
@@ -291,39 +295,44 @@ footer .social-icons {
     }
 }
 @media screen and (max-width: 768px) {
-    .talent-wrapper,
+    .navbar-brand img {
+        height: 1.8rem;
+    }
+    .navbar-toggler {
+        height: 1.5rem;
+    }
     .create-wrapper,
     footer .d-flex {
         text-align: center;
     }
-    .talent-wrapper h1 {
-        font-size: 36px;
-    }
-    .talent-wrapper p {
-        margin: auto;
+    .talent-wrapper h1,
+    .main h3 {
+        font-size: 25px;
+        width: 70%;
     }
     .talent-wrapper img {
         margin-top: 3rem;
-    }
-    .main h3 {
-        font-size: 30px;
     }
     .talent-waitlist p, 
     .btn.btn-join,
     .targe-loop p, 
     .employers-waitlist p,
     .qualified-wrapper p {
-        font-size: 16px;
+        font-size: 14px;
     }
     .targe-loop p {
         width: 75%;
     }
-    .create-wrapper p {
-        font-size: 25px;
+    .create-wrapper p.w-75 {
+        width: 100%!important;
+        font-size: 18px;
     }
     .qualified-wrapper {
         background-size: cover;
         background-position: inherit;
+    }
+    .main .qualified-wrapper h3 {
+        width: 85%;
     }
     .employers-waitlist {
         padding: 4rem 0;
