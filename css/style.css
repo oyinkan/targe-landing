@@ -47,8 +47,7 @@ body {
 .talent-wrapper p,
 .copyright,
 .modal p,
-.modal .form-control,
-.talent-wrapper .join-employer {
+.modal .form-control {
     font-weight: 600;
     font-size: 1.4rem;
     /* line-height: 37px; */
@@ -65,6 +64,10 @@ body {
     border-radius: 10px;
     color: #fff;
     padding: 1rem 3rem;
+}
+.btn.btn-primary.btn-send:hover {
+    background: transparent;
+    color: #171248;
 }
 .talent-wrapper h1,
 .main h3 {
@@ -84,8 +87,13 @@ body {
 .talent-wrapper p {
     width: 80%;
 }
-.talent-wrapper .join-employer {
-    padding-left: 20px;
+.talent-wrapper .btn.btn-primary.btn-send.join-employer {
+    background: transparent;
+    color: #171248;
+}
+.talent-wrapper .btn.btn-primary.btn-send.join-employer:hover {
+    background: #171248;
+    color: #fff;
 }
 .talent-waitlist {
     padding: 7rem 0;
@@ -305,13 +313,20 @@ footer .social-icons {
     footer .d-flex {
         text-align: center;
     }
+    .talent-wrapper h1 {
+        font-size: 30px;
+    }
     .talent-wrapper h1,
-    .main h3 {
-        font-size: 25px;
-        width: 70%;
+    .talent-wrapper p,
+    .talent-wrapper .btn.btn-primary.btn-send {
+        width: 100%;
     }
     .talent-wrapper img {
         margin-top: 3rem;
+    }
+    .main h3 {
+        font-size: 25px;
+        width: 70%;
     }
     .talent-waitlist p, 
     .btn.btn-join,
