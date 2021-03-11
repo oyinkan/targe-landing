@@ -318,15 +318,23 @@ footer .social-icons {
     }
     .talent-wrapper h1,
     .talent-wrapper p,
-    .talent-wrapper .btn.btn-primary.btn-send {
+    .talent-wrapper .btn.btn-primary.btn-send,
+    .main h3,
+    .talent-waitlist p, 
+    .employers-waitlist p {
         width: 100%;
+    }
+    .mr-40 {
+        margin-right: 0;
     }
     .talent-wrapper img {
         margin-top: 3rem;
     }
+    #join-talent {
+        margin-top: -3rem;
+    }
     .main h3 {
         font-size: 25px;
-        width: 70%;
     }
     .talent-waitlist p, 
     .btn.btn-join,
