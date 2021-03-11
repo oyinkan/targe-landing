@@ -126,11 +126,8 @@ body {
 }
 .talent-waitlist .line {
     border-left: 1px solid #1A73E8;
-    height: 6.5rem;
+    height: 100%;
     opacity: 0.5;
-}
-.talent-waitlist .second-line {
-    height: 8rem;
 }
 .btn.btn-join {
     font-family: "BR Firma Medium";
