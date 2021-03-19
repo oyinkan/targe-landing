@@ -431,7 +431,14 @@ footer .social-icons {
     .overlay a:hover, 
     .overlay a:focus { 
         color: #fff; 
-    }  
+    } 
+    .modal-content {
+        padding: 4rem 2rem;
+    }
+    .modal h4 {
+        font-size: 30px;
+        margin-top: 1rem;
+    } 
 }
 
 @media screen and (max-width: 576px) {
@@ -440,6 +447,10 @@ footer .social-icons {
     }
     .modal-dialog {
         margin: 2rem;
+    }
+    .modal h4 {
+        font-size: 24px;
+        margin-top: 2rem;
     }
 }
 @media screen and (min-width: 768px) {
