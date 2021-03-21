@@ -49,7 +49,7 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="mt-4">
                             <h1>Talents are at the <span>heart</span> of what we are building.</h1>
-                            <p class="mt-4">Sign up for free, pass our skill assessment tests and get connected to amazing job opportunities outside of Africa.</p>
+                            <p class="mt-4">Sign up for free, pass our skill assessment tests and get connected to amazing job opportunities.</p>
                             <div class="mt-5 pt-5">
                                 <a href="" class="btn btn-primary btn-send" id="join-talent" data-toggle="modal" data-target="#talentModal">Join talent waitlist</a>
                             </div>
@@ -166,7 +166,7 @@
                                     <img src="images/check.svg" class="mt-2" alt="check icon">
                                 </div>
                                 <div>
-                                    <p>Get extra help (on-demand) from an expert in the field you are hiring for, to help you out with technical interviews and case studies.</p>
+                                    <p>Get extra help (on-demand) from an expert in the field you are hiring for, to help you with technical interviews and case studies.</p>
                                 </div>
                             </div>
                             <div class="mt-5">
@@ -185,8 +185,8 @@
                 <div class="create-wrapper">
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="w-75 mb-0">
-                            We are creating a report on hiring challenges faced by companies when trying to hire from Africa, their perception about talents here and remote work.<br><br>
-                            <span>Spare 7 mins to fill our survey and tell us what you think.</span>
+                            We are creating a report on hiring challenges faced by companies when trying to hire from Africa. We want to try to understand what you think about hiring talents from here and remote work.<br><br>
+                            <span>Kindly spare 7 mins to fill our survey and tell us what you think.</span>
                         </p>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScKcy7ao-K293p9D24Dsokz8u5BMj_FObGfeqeH8nlR7xyj9g/viewform" class="btn btn-primary btn-survey" target="_blank">Take Survey</a>
                     </div>
@@ -233,24 +233,24 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="text-center">
-                    <h4>Access the best collection of talents</h4>
-                    <p>Get on the list today and become one of the earliest users of Targe.</p>
+                    <h4>Get priority access to a curated pool of top talents</h4>
+                    <!-- <p>Get on the list today and become one of the earliest users of Targe.</p> -->
                 </div>
                 <form class="mt-5 pt-4" id="employerForm">
                     <div class="form-group">
-                        <input type="text" id="your-name" class="form-control" placeholder="Your Name">
+                        <input type="text" id="your-name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="your-email" class="form-control" placeholder="Your Email address">
+                        <input type="email" id="your-email" class="form-control" placeholder="Your Work Email address" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="job-title" class="form-control" placeholder="Your Job Title">
+                        <input type="text" id="job-title" class="form-control" placeholder="Your Job Title" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="company-name" class="form-control" placeholder="Company Name">
+                        <input type="text" id="company-name" class="form-control" placeholder="Company Name" required>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="" aria-placeholder="Select Company Location">
+                        <select class="form-control" id="location" aria-placeholder="Select Company Location" required>
                             <option value="">Select Company Location</option>
                         </select>
                     </div>
@@ -277,27 +277,27 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="text-center">
-                    <h4>Join the best collection of talents</h4>
-                    <p>Get on the list today and become one of the earliest users of Targe.</p>
+                    <h4>Get hired faster and better</h4>
+                    <p>Join the waitlist today and get first look at our employer list when we launch.</p>
                 </div>
                 <form class="mt-5 pt-4" id="talentForm">
                     <div class="form-group">
-                        <input type="text" id="name" class="form-control" placeholder="Your Name">
+                        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" class="form-control" placeholder="Your Email address">
+                        <input type="email" id="email" class="form-control" placeholder="Your Email address" required>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="job-role">
+                        <select class="form-control" id="job-role" required>
                             <option value="">Select Job Role</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="country">
+                        <select class="form-control" id="country" required>
                             <option value="">Select Country</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary btn-send w-100 mt-4" data-toggle="modal" data-target="#successModal">
+                    <button class="btn btn-primary btn-send w-100 mt-4">
                         Join the waitlist now
                     </button>
                 </form>
@@ -331,18 +331,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/countries.js"></script>
+    <script src="js/specialties.js"></script>
+    
     <script>
         $('#employerForm').on('submit', function(e){
             e.preventDefault();
-            $('#successModal').modal('show');
-            $('#employerModal').modal('hide');
+
+            let allAreFilled = true;
+            document.getElementById("employerForm").querySelectorAll("[required]").forEach(function(i) {
+                if (!allAreFilled) return;
+                if (!i.value) allAreFilled = false;
+
+                if (!allAreFilled) {
+                    alert('Fill all the fields');
+                } else {
+                    $('#employerModal').modal('hide');
+                    $('#successModal').modal('show');
+                }
+            })  
         });
 
         $('#talentForm').on('submit', function(e){
             e.preventDefault();
-            $('#successModal').modal('show');
-            $('#talentModal').modal('hide');
+            let allAreFilled = true;
+            document.getElementById("talentForm").querySelectorAll("[required]").forEach(function(i) {
+                if (!allAreFilled) return;
+                if (!i.value) allAreFilled = false;
+
+                if (!allAreFilled) {
+                    alert('Fill all the fields');
+                } else {
+                    $('#talentModal').modal('hide');
+                    $('#successModal').modal('show');
+                }
+            })
         });
+
+        
     </script>
     <script> 
         function openNav() { 
