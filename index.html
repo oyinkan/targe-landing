@@ -381,6 +381,7 @@
                 message.innerHTML = data.message;
             }).catch(function (error) {
                 console.warn('Something went wrong.', error);
+                message.innerHTML = data.error;
             });
         });
 
@@ -400,10 +401,6 @@
             })
 
             const formData = new FormData(this);
-
-            for (var value of formData.values()) {
-                console.log(value);
-            }
 
             fetch('https://targe-backend-api.herokuapp.com/v1/talent/waitlist', {
                 method: 'POST',
@@ -425,27 +422,10 @@
             }).then(function (data) {
                 message.innerHTML = data.message;
             }).catch(function (error) {
+                message.innerHTML = data.error;
                 console.warn('Something went wrong.', error);
             });
         });
-
-        const ConvertToCSV = data => {
-            if (!data || data.length === 0) { 
-                console.log("data was empty");
-                return;
-            }
-            let csv = [Object.keys(data[0]).slice(0).join(",")];
-            data.forEach(
-                item => csv.push(
-                Object.values(item).map(val => isNaN(val) ? '"'+val+'"':val).join(",")
-                )
-            )
-            csv=csv.join("\n");
-            console.log(csv);
-            const $link = $('<a/>',{ href: "data:text/csv;charset=utf-8,"+escape(csv), download:"filename.csv",text:"download"});
-            
-            $link[0].click(); // have to trigger native click
-        };
     </script>
     <script> 
         function openNav() { 
