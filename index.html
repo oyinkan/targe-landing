@@ -219,7 +219,6 @@
         </div>
     </footer>
 
-
     <!-- employer modal -->
     <div class="modal" id="employerModal">
         <div class="modal-dialog">
@@ -238,19 +237,19 @@
                 </div>
                 <form class="mt-5 pt-4" id="employerForm">
                     <div class="form-group">
-                        <input type="text" id="your-name" class="form-control" placeholder="Your Name" required>
+                        <input type="text" name="your-name" id="your-name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="your-email" class="form-control" placeholder="Your Work Email address" required>
+                        <input type="email" name="your-email" id="your-email" class="form-control" placeholder="Your Work Email address" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="job-title" class="form-control" placeholder="Your Job Title" required>
+                        <input type="text" name="job-title" id="job-title" class="form-control" placeholder="Your Job Title" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="company-name" class="form-control" placeholder="Company Name" required>
+                        <input type="text" name="company-name" id="company-name" class="form-control" placeholder="Company Name" required>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="location" aria-placeholder="Select Company Location" required>
+                        <select class="form-control" name="location" id="location" aria-placeholder="Select Company Location" required>
                             <option value="">Select Company Location</option>
                         </select>
                     </div>
@@ -282,18 +281,18 @@
                 </div>
                 <form class="mt-5 pt-4" id="talentForm">
                     <div class="form-group">
-                        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" class="form-control" placeholder="Your Email address" required>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email address" required>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="job-role" required>
+                        <select class="form-control" name="job-role" id="job-role" required>
                             <option value="">Select Job Role</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="country" required>
+                        <select class="form-control" name="country" id="country" required>
                             <option value="">Select Country</option>
                         </select>
                     </div>
@@ -322,7 +321,7 @@
                 <div class="text-center">
                     <img src="images/accept.svg" class="img-fluid mb-4" alt="check icon">
                     <h4>Rock on!</h4>
-                    <p class="mb-0">You’re on the list. We’ll update you once Targe is live with an invite.</p>
+                    <p class="mb-0" id="message"></p>
                 </div>
             </div>
         </div>
@@ -335,6 +334,8 @@
     <script src="js/specialties.js"></script>
     
     <script>
+        const message = document.getElementById("message");
+
         $('#employerForm').on('submit', function(e){
             e.preventDefault();
 
@@ -350,6 +351,37 @@
                     $('#successModal').modal('show');
                 }
             })  
+
+            const formData = new FormData(this);
+
+            for (var value of formData.values()) {
+                console.log(value);
+            }
+
+            fetch('https://targe-backend-api.herokuapp.com/v1/employer/waitlist', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: formData.get("your-name"),
+                    companyName: formData.get("company-name"),
+                    email: formData.get("your-email"),
+                    jobTitle: formData.get("job-title"),
+                    location: formData.get("location")
+                }),
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                }
+                return Promise.reject(response);
+            }).then(function (data) {
+                console.log(data);
+                message.innerHTML = data.message;
+            }).catch(function (error) {
+                console.warn('Something went wrong.', error);
+            });
         });
 
         $('#talentForm').on('submit', function(e){
@@ -366,9 +398,54 @@
                     $('#successModal').modal('show');
                 }
             })
+
+            const formData = new FormData(this);
+
+            for (var value of formData.values()) {
+                console.log(value);
+            }
+
+            fetch('https://targe-backend-api.herokuapp.com/v1/talent/waitlist', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: formData.get("name"),
+                    email: formData.get("email"),
+                    role: formData.get("job-role"),
+                    country: formData.get("country")
+                }),
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                }
+                return Promise.reject(response);
+            }).then(function (data) {
+                message.innerHTML = data.message;
+            }).catch(function (error) {
+                console.warn('Something went wrong.', error);
+            });
         });
 
-        
+        const ConvertToCSV = data => {
+            if (!data || data.length === 0) { 
+                console.log("data was empty");
+                return;
+            }
+            let csv = [Object.keys(data[0]).slice(0).join(",")];
+            data.forEach(
+                item => csv.push(
+                Object.values(item).map(val => isNaN(val) ? '"'+val+'"':val).join(",")
+                )
+            )
+            csv=csv.join("\n");
+            console.log(csv);
+            const $link = $('<a/>',{ href: "data:text/csv;charset=utf-8,"+escape(csv), download:"filename.csv",text:"download"});
+            
+            $link[0].click(); // have to trigger native click
+        };
     </script>
     <script> 
         function openNav() { 

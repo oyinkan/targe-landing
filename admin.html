@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Targe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        div {
+            width: 40%;
+            margin: 4rem auto;
+        }
+
+        @media screen and (max-width: 576px) {
+            div {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a download href="https://targe-backend-api.herokuapp.com/v1/admin/talent/fetch/waitlist" class="btn btn-primary btn-send w-100 mt-4">
+            Download Talent Waitlist Data
+        </a>
+        <a download href="https://targe-backend-api.herokuapp.com/v1/admin/employers/fetch/waitlist" class="btn btn-primary btn-send w-100 mt-4">
+            Download Employer Waitlist Data
+        </a>
+    </div>
+</body>
+</html>
