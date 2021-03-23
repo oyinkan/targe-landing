@@ -371,13 +371,14 @@
                 if (response.ok) {
                     return response.json();
                 }
+                if (response.ok === false) {
+                    message.innerHTML = "You have already joined the waitlist";
+                }
                 return Promise.reject(response);
             }).then(function (data) {
-                console.log(data);
                 message.innerHTML = data.message;
             }).catch(function (error) {
                 console.warn('Something went wrong.', error);
-                message.innerHTML = data.error;
             });
         });
 
@@ -414,11 +415,13 @@
                 if (response.ok) {
                     return response.json();
                 }
+                if (response.ok === false) {
+                    message.innerHTML = "You have already joined the waitlist";
+                }
                 return Promise.reject(response);
             }).then(function (data) {
                 message.innerHTML = data.message;
             }).catch(function (error) {
-                message.innerHTML = data.error;
                 console.warn('Something went wrong.', error);
             });
         });
